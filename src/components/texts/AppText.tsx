@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
   },
   medium: {
     fontSize: s(16),
-    color: "#000",
+    color: AppColors.black,
   },
 });
