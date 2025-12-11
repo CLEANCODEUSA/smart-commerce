@@ -7,7 +7,6 @@ export default function App() {
     <View style={styles.container}>
       <AppText variant="medium">Hello World!</AppText>
       <AppText variant="bold">Hello World!</AppText>
-      <StatusBar style="auto" />
     </View>
   );
 }
