@@ -1,0 +1,31 @@
+import {Stylesheet, Text, TextProps, TextStyle, View} from "react-native";
+import React, {FC} from "react";
+import {s} from "react-native-size-matters";
+
+interface AppTextProps extends TextProps{
+  childre: React.ReactNode;
+  style?: TextStyle | TextStyle[];
+  variant?: "bold" | "medium"
+}
+
+const AppText :FC<AppTextProps> = ({ children, style, variant = "medium", ...rest}) => {
+  return (
+    <Text {...rest} style={[styles[variant], style]}>
+      {children}
+    </Text>
+  );
+};
+
+export default AppText;
+
+const styles = Stylesheet.create({
+  bold: {
+    fontSize: s(18),
+    color: "#000",
+  },
+  medium: {
+    fontSize: s(16),
+    color: "#000",
+  },
+});
+
