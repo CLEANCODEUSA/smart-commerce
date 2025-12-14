@@ -7,8 +7,8 @@ import {
 } from 'react-native'
 import React from 'react'
 import { s, vs } from 'react-native-size-matters'
-import { AppColors } from '../../styles/colors'
-import AppText from '../texts/AppText'
+import { AppColors } from '../styles/colors'
+import AppText from './texts/AppText'
 
 interface AppButtonProps {
   title: string
