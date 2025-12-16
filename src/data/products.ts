@@ -25,7 +25,7 @@ export const products = [
     price: 1299,
     title: "Samsung Phone",
     imageURL:
-      "https://d1b5h9psu9yexj.cloudfront.net/60226/Samsung-Galaxy-S24_20240319-183738_full.jpeg",
+      "https://image-us.samsung.com/SamsungUS/home/mobile/phones/a25/gal/1_SM-A256B_BlueBlack_Back_Front-1600x1200.jpg",
   },
   {
     id: 5,
