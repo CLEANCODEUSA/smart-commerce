@@ -1,15 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import AppSaveView from './src/components/views/AppSaveView';
-import FlashMessage, { showMessage } from 'react-native-flash-message';
-import AppTextInput from './src/components/inputs/AppTextInput';
-import SignInScreen from './src/screens/auth/SignInScreen';
-import SignUpScreen from './src/screens/auth/SignUpScreen';
-import AuthStack from './src/navigation/AuthStack';
+import { StyleSheet, ActivityIndicator } from 'react-native';
+import FlashMessage from 'react-native-flash-message';
 import { NavigationContainer } from '@react-navigation/native';
 import MainAppStack from './src/navigation/MainAppStack';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    "Montserrat": require("./src/assets/fonts/montserrat/Montserrat-Regular.ttf"),
+    "Montserrat-Bold": require("./src/assets/fonts/montserrat/Montserrat-Bold.ttf")
+  })
+
+  if (!fontsLoaded) {
+    return <ActivityIndicator size={"large"} />
+  }
+
   return (
     <>
       <NavigationContainer>
