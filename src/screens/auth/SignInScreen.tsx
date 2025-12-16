@@ -25,7 +25,7 @@ const SignInScreen = () => {
         title='Sign In'
         style={styles.registerButton}
         textColor={AppColors.primary}
-        onPress={() => navigation.navigate("SignInScreen")}
+        onPress={() => navigation.navigate("MainAppBottomTabs")}
       />
       <AppButton
         title='Sign Up'
