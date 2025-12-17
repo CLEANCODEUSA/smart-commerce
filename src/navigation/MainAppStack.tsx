@@ -12,7 +12,7 @@ export default function MainAppStack() {
     >
       <Stack.Screen name="AuthStack" component={AuthStack} />
       <Stack.Screen name="MainAppBottomTabs" component={MainAppBottomTabs} />
-      <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
+      <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} options={{ headerShown: true }} />
     </Stack.Navigator>
   )
 }
