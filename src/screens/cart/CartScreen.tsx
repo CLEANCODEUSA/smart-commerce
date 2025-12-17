@@ -7,7 +7,7 @@ import CartItem from '../../components/cart/CartItem'
 import TotalsView from '../../components/cart/TotalsView'
 import { products } from '../../data/products'
 import { sharedPaddingHorizontal } from '../../styles/sharedStyles'
-import AppButton from '../../components/AppButton'
+import AppButton from '../../components/buttons/AppButton'
 
 const CartScreen = () => {
   return (
