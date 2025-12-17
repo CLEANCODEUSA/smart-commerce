@@ -6,14 +6,17 @@ import ProfileSectionButton from '../../components/buttons/ProfileSectionButton'
 import { sharedPaddingHorizontal } from '../../styles/sharedStyles'
 import AppText from '../../components/texts/AppText'
 import { s, vs } from 'react-native-size-matters'
+import { useNavigation } from '@react-navigation/native'
 
 const ProfileScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <AppSaveView>
       <HomeHeader />
       <AppText variant='Bold' style={{ fontSize: s(18), marginTop: vs(10) }}>Hello, Vishal</AppText>
       <View style={{ paddingHorizontal: sharedPaddingHorizontal }}>
-        <ProfileSectionButton title={"My Orders"} />
+        <ProfileSectionButton title={"My Orders"} onPress={() => navigation.navigate('MyOrderScreen')} />
         <ProfileSectionButton title={"Language"} />
         <ProfileSectionButton title={"Logout"} />
       </View>
