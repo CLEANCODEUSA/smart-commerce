@@ -1,42 +1,51 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
-import React from 'react'
+import React, { FC } from 'react'
 import { s, vs } from "react-native-size-matters"
 import AppText from '../texts/AppText';
 import { AppColors } from '../../styles/colors';
 import { AppFonts } from '../../styles/fonts';
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 
+interface ICartItem {
+  title: string,
+  price: string | number,
+  imageURL: string,
+  qty: number,
+  onDeletePress: () => void,
+  onIncreasePress: () => void,
+  onReducePress: () => void
+}
 
-const tempItem = {
-  id: 1,
-  price: 1199,
-  title: "iPhone 16 Pro Max",
-  imageURL:
-    "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg",
-};
-
-const CartItem = () => {
+const CartItem: FC<ICartItem> = ({
+  title,
+  price,
+  imageURL,
+  qty,
+  onDeletePress,
+  onIncreasePress,
+  onReducePress
+}) => {
   return (
     <View style={styles.container}>
       {/* Image Container */}
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: tempItem.imageURL }}
+          source={{ uri: imageURL }}
           style={styles.image}
         />
       </View>
 
       {/* Details Container */}
       <View style={styles.detailsContainer}>
-        <AppText style={styles.textTitle}>{tempItem.title}</AppText>
-        <AppText style={styles.textPrice}>{tempItem.price}</AppText>
+        <AppText style={styles.textTitle}>{title}</AppText>
+        <AppText style={styles.textPrice}>{price}</AppText>
 
         <View style={styles.qtyContainer}>
-          <Pressable style={styles.iconButton}>
+          <Pressable onPress={onIncreasePress} style={styles.iconButton}>
             <FontAwesome name='plus' size={s(10)} color={AppColors.primary} />
           </Pressable>
-          <AppText style={styles.textQty}>1</AppText>
-          <Pressable style={styles.iconButton}>
+          <AppText style={styles.textQty}>{qty}</AppText>
+          <Pressable onPress={onReducePress} style={styles.iconButton}>
             <FontAwesome name='minus' size={s(10)} color={AppColors.primary} />
           </Pressable>
         </View>
@@ -44,7 +53,7 @@ const CartItem = () => {
 
       {/* Delete Button Container */}
       <View style={styles.deleteContainer}>
-        <Pressable style={StyleSheet.deleteButton}>
+        <Pressable onPress={onDeletePress} style={StyleSheet.deleteButton}>
           <AntDesign name='delete' size={s(14)} color={AppColors.redColor} />
           <AppText style={styles.deleteText}>Delete</AppText>
         </Pressable>
