@@ -1,27 +1,13 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React from 'react'
-import { orderData } from '../data/dummydata'
 
-const Item = ({ date, totalAmount, totalPrice }) => {
-  <View>
-    <Text>Date: {date}</Text>
-    <Text>Total amount: {totalAmount}</Text>
-    <Text>Total Price: {totalPrice}</Text>
-  </View>
-};
-
-const OrderItem = () => {
-  const renderItem = ({ item }) => (
-    <Item title={item.date} />
-  );
-
+const OrderItem = ({ item }) => {
+  // console.log(item.item.id);
   return (
     <View>
-      <FlatList
-        data={orderData}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
+      <Text>{item.date}</Text>
+      <Text>{item.totalAmount}</Text>
+      <Text>{item.totalPrice}</Text>
     </View>
   )
 }

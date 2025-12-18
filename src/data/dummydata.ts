@@ -1,4 +1,4 @@
-export const orderData = [
+export const dummyData = [
   {
     id: 1,
     date: "2025-01-01",

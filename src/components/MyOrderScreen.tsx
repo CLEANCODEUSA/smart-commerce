@@ -1,23 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { FC } from 'react'
-import OrderItem from './OrderItem'
+import React from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import localData from '../data/items.json'
+import { dummyData } from '../data/dummydata';
+import OrderItem from './OrderItem';
 
-interface IMyOrderScreen {
-  date: string,
-  totalAmount: string | number,
-  totalPrice: string | number
-}
-
-const MyOrderScreen: FC<IMyOrderScreen> = ({ date, totalAmount, totalPrice }) => {
+const MyOrderScreen = () => {
   return (
-    <View>
-      <Text>Date: {date}</Text>
-      <Text>Total amount: {totalAmount}</Text>
-      <Text>Total Price: {totalPrice}</Text>
+    <View style={styles.container}>
+      <FlatList
+        data={dummyData}
+        renderItem={
+          ({ item }) => <OrderItem item={item} />
+        }
+        keyExtractor={item => item.id}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default MyOrderScreen
+const styles = StyleSheet.create({
+});
 
-const styles = StyleSheet.create({})
+export default MyOrderScreen;
