@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Button } from 'react-native'
 import React, { useState } from 'react'
 import AppSaveView from '../../components/views/AppSaveView'
 import { sharedPaddingHorizontal } from '../../styles/sharedStyles'
@@ -9,14 +9,25 @@ import AppButton from '../../components/AppButton'
 import AppText from '../../components/texts/AppText'
 import { AppColors } from '../../styles/colors'
 import { useNavigation } from "@react-navigation/native"
+import axios from 'axios'
 
 const SignInScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
+  const endpointURL = "https://694b54ac26e870772067d39d.mockapi.io/books"
+
+  const getListOfBooks = async () => {
+    const response = await axios.get(endpointURL);
+    console.log(JSON.stringify(response.data, null, 3))
+  }
+
   return (
     <AppSaveView style={styles.container}>
+      <View>
+        <Button title="Get List of Books" onPress={getListOfBooks} />
+      </View>
       <Image source={IMAGES.appLogo} style={styles.logo} />
       <AppTextInput placeholder="Email" onChangeText={setEmail} />
       <AppTextInput placeholder="Password" onChangeText={setPassword} secureTextEntry />
